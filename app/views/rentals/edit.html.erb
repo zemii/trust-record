@@ -1,0 +1,21 @@
+<div style="text-align:center">
+    <% if @rental.errors.present? %>
+        <span style="color:red;">
+            <h3>エラーがあります。</h3>
+            <ul>
+            <% @rental.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+            </ul>
+        </span>
+    <% end %>
+    
+    <%= form_for @rental, url: {action: :update} do |f| %>
+      <p><%= f.label :name, '貸せるもの' %>
+      <%= f.text_field :name %></p>
+      <p><%= f.label :cost, '価格' %>
+      <%= f.text_field :cost %></p>
+      <p><%= f.submit '更新する' %></p>
+      <p><%= link_to '戻る', :back %></p>
+    <% end %>
+</div>

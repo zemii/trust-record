@@ -1,0 +1,11 @@
+<br><%= link_to '貸せるものを登録する', new_rental_path %><br>
+
+<ul>
+    <% @rentals.each do |e| %>
+    <li>
+        <%= e.name %>
+        ¥<%= e.cost %>
+        <%= link_to '借りる', rental_path(e) %>
+    </li>
+    <% end %>
+</ul>
