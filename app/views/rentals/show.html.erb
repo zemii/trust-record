@@ -1,4 +1,6 @@
 <br>
 貸せるもの：<%= @rental.name %><br>
 価格：<%= @rental.cost %><br>
+期間：<%= @rental.term %><br>
+<%= link_to '借りる', '/top/rentaled' %>
 <%= link_to '戻る', :back %>

@@ -5,7 +5,10 @@
     <li>
         <%= e.name %>
         ¥<%= e.cost %>
-        <%= link_to '借りる', rental_path(e) %>
+        <%= e.term %>
+        <%= link_to '詳細', rental_path(e) %>
+        <%= link_to '編集', edit_rental_path(e) %>
+        <%= link_to '削除', rental_path(e), method: :delete, data: {confirm: "削除しますか？"} %>
     </li>
     <% end %>
 </ul>

@@ -8,7 +8,7 @@ class RentalsController < ApplicationController
   end
 
   def create
-    @rental = Rental.new(name: params[:rental][:name], cost: params[:rental][:cost])
+    @rental = Rental.new(name: params[:rental][:name], cost: params[:rental][:cost], term: params[:rental][:term])
     if @rental.save
        flash[:notice] = '貸せるものを登録しました'
       redirect_to root_path
@@ -27,7 +27,7 @@ class RentalsController < ApplicationController
 
   def update
     @rental = Rental.find(params[:id])
-    if @rental.update(name: params[:rental][:name], cost: params[:rental][:cost])
+    if @rental.update(name: params[:rental][:name], cost: params[:rental][:cost], term: params[:rental][:term])
       flash[:notice] = '貸せるものを更新しました'
       @rental.save
       redirect_to root_path
@@ -36,7 +36,7 @@ class RentalsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     rental = Rental.find(params[:id])
     rental.destroy
     redirect_to root_path
